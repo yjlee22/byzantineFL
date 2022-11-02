@@ -1,0 +1,1 @@
+nvidia-docker run -d -it --restart always --name experiment --shm-size 256G -p $tensorboard_port:$tensorboard_port --ip=0.0.0.0 --mount type=bind,source=$(pwd)/tmi, target=/root/tmi pytorch/pytorch:1.12.0-cuda11.3-cudnn8-devel
