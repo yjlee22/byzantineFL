@@ -14,7 +14,7 @@ from utils.options import args_parser
 from utils.sampling import noniid
 from utils.dataset import load_data
 from utils.test import test_img
-from utils.byzantine_fl import krum, trimmed_mean, fang, dca
+from utils.byzantine_fl import krum, trimmed_mean, fang, dummy_contrastive_aggregation
 from utils.attack import compromised_clients, untargeted_attack
 from src.aggregation import fedavg
 from src.update import BenignUpdate, CompromisedUpdate
@@ -82,7 +82,7 @@ if __name__ == '__main__':
         elif args.method == 'fang':
             w_glob = fang(w_locals, dataset_val, compromised_num, args)
         elif args.method == 'dca':
-            w_glob = dca(w_locals, compromised_num, copy.deepcopy(net_glob), args)
+            w_glob = dummy_contrastive_aggregation(w_locals, compromised_num, copy.deepcopy(net_glob), args)
         else:
             exit('Error: unrecognized aggregation technique')
 

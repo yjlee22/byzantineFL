@@ -87,7 +87,7 @@ def fang(w_locals, dataset_val, c, args):
 
     return fedavg([copy.deepcopy(w_locals[i]) for i in filterd_clients]) 
         
-def dummy_contrastive_scoring(w_locals, global_net, args):
+def triplet_distance(w_locals, global_net, args):
 
     score = torch.zeros([args.num_clients, args.num_clients]).to(args.device)
     dummy_data = torch.empty(args.ds, 3, 28 ,28).uniform_(0, 1).to(args.device)
@@ -107,10 +107,10 @@ def dummy_contrastive_scoring(w_locals, global_net, args):
         
     return score
 
-def dca(w_locals, c, global_net, args):
+def dummy_contrastive_aggregation(w_locals, c, global_net, args):
     n = len(w_locals) - c
 
-    score = dummy_contrastive_scoring(copy.deepcopy(w_locals), global_net, args)
+    score = triplet_distance(copy.deepcopy(w_locals), global_net, args)
     
     sorted_idx = score.sum(dim=0).argsort()[: n]
     
