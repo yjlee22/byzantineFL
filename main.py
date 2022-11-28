@@ -33,7 +33,6 @@ if __name__ == '__main__':
     torch.cuda.manual_seed_all(args.seed)
 
     dataset_train, dataset_test, dataset_val = load_data(args)
-    ratio_dataset = ratio_sampling(dataset_val, args)
     
     # early stopping hyperparameters
     cnt = 0

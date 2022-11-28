@@ -1,6 +1,7 @@
 import numpy as np
 
 def noniid(dataset, args):
+
     idxs = np.arange(len(dataset))
     labels = np.transpose(np.array(dataset.labels))
     
