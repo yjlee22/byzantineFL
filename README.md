@@ -3,7 +3,7 @@
 This is an official implementation of the following paper:
 > Youngjoon Lee, Sangwoo Park, and Joonhyuk Kang.
 **[Security-Preserving Federated Learning via Byzantine-Sensitive Triplet Distance](https://arxiv.org/abs/2210.16519)**  
-_submitted in ICASSP 2023_.
+_arXiv preprint arXiv:2210.16519_.
 
 ## Requirements
 The implementation runs on
